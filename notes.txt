@@ -1,0 +1,20 @@
+basics
++++++++++
+creating a object of beautifulsoup by 
+page = Beautifulsoup(<name of html document>, html.parser )
+page is structured object that is being created according the structure of the html document element
+
+the page object conatins all the elements as their parameters
+properties of each html element is being accessed by using the []
+for example
+    page.a['href'] will give the href attribute value of the a html object.
+    if multiple elemets are there then we have to use for loop to loop over all the elements.
+methods avialable
+1.find_all('tag ')
+    return a list of all the  corresponding elements present in the given html document.
+2.find('tag')
+    return the html element object for the first appearence.
+
+
+getting attribute as a dictionary
+    tag.attrs
