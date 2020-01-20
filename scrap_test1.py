@@ -1,4 +1,4 @@
-import request
+import requests
 from bs4  import BeautifulSoup
 html_doc="""
 <html><head><title>The Dormouse's story</title></head>
@@ -15,9 +15,10 @@ and they lived at the bottom of a well.</p>
 </body>
 </html>
 """
-page = BeautifulSoup(html_doc,'html.parser')
-#print(page.prettify())
-print(page.a['href'])
+url = "https://www.flipkart.com/search?q=rog+phone+2&sid=tyy%2C4io&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_0_4_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_0_4_na_na_na&as-pos=0&as-type=RECENT&suggestionId=rog+phone+2%7CMobiles&requestId=63fb7211-d586-4320-a000-52cf7a6464bd&as-backfill=on"
+web=requests.get(url)
+page = BeautifulSoup(url,'html.parser')
+print(page.prettify())
 print(page.find_all('a'))
 for link in page.find_all('a'):
     print(link.get('href'))
