@@ -15,11 +15,7 @@ and they lived at the bottom of a well.</p>
 </body>
 </html>
 """
-url = "https://www.crummy.com/software/BeautifulSoup/bs4/doc"
-web=requests.get(url)
-page = BeautifulSoup(web.text,'lxml')
+url = "https://www.flipkart.com/search?q=rog+phone+2&sid=tyy%2C4io&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_0_4_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_0_4_na_na_na&as-pos=0&as-type=RECENT&suggestionId=rog+phone+2|Mobiles&requestId=63fb7211-d586-4320-a000-52cf7a6464bd&as-backfill=on"
+web=requests.get(url).text
+page=BeautifulSoup(web,'lxml',from_encoding='UTF-8')
 print(page.prettify())
-
-print(page.find_all('a'))
-for link in page.find_all('a'):
-    print(link.get('href'))
